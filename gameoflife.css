@@ -44,6 +44,12 @@ td{
 	height: 100px;
 }
 
+.buttons {
+    border-width: thin;
+    border-spacing: 2px;
+    border-color: green;
+}
+
 .empty {
 background-image: url(empty.gif);
 }
