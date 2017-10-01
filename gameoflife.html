@@ -1,4 +1,6 @@
-<html>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title> The Game of Life </title>
 		<link rel="stylesheet" type="text/css" href="gameoflife.css">
@@ -7,6 +9,18 @@
 		<h2> Welcome to </h2>
 		<h1> The Game of Life</h1>
 		
+		<script src="gameoflife.js"> </script>
+		<table id ="buttons" class = "buttons">
+  		   <tr>
+    			<td><button onclick="startup()">start</button></td>
+   				<td><button type="button">stop</button></td>
+  		   	   	<td><button type="button">inc 1 gen</button></td>
+  		   		<td><button type="button">inc 23 gen</button></td>
+  		   		<td><button type="button">reset </button></td>
+  		   </tr>
+		</table>
+  	
+		<table id ="GameOfLife" border="1">
 	
 		<script src="gameoflife.js"> </script>
 		
@@ -15,21 +29,12 @@
 			for(i=0;i<rows;i++){
 				document.write("<tr>");
 				for(j=0;j<cols;j++){
-					document.write("<td class=empty> </td>");
+						document.write("<td class=empty id = " + i + "" + j +" onclick=\x22changeImage('" + i + "" +j+ "')\x22> </td>");
 				}
 				document.write("</tr>");
 			}
 			</script>
-		</table>
-		<div class="wrapper">
-			<table>
-				<tr><td class = "td1"><button class = "button"> Next Generation</button> </td></tr>
-				<tr><td class = "td1"><button class = "button"> Reset Generations</button> </td></tr>
-				<tr><td class = "td1"><button class = "button"> Start Generations</button> </td></tr>
-
-			</table>
-			
-		</div>
+		
 		
 
 	</body>
