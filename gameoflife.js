@@ -41,9 +41,9 @@ function makeAlive(cellid){
 }
 
 function makeDead(cellid){
-        document.getElementById('0'+(cols-1).toString()).classList.add('dead');
-        document.getElementById('0'+(cols-1).toString()).classList.remove('living');
-        document.getElementById('0'+(cols-1).toString()).classList.remove('empty');
+        document.getElementById('0.'+(cols-1).toString()).classList.add('dead');
+        document.getElementById('0.'+(cols-1).toString()).classList.remove('living');
+        document.getElementById('0.'+(cols-1).toString()).classList.remove('empty');
 }
 
 function startup(){
@@ -53,95 +53,95 @@ function startup(){
             for(i=0;i<rows;i++){
                 for(j=0;j<cols;j++){
                     count = 0;
-                    cell =  ( i.toString() + j.toString() );
+                    cell =  ( i.toString() +"."+ j.toString() );
                     if (cell == ('0.0')){
-                        if (document.getElementById('01').classList.contains('living')== true){
+                        if (document.getElementById('0.1').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById('10').classList.contains('living')== true){
+                        if (document.getElementById('1.0').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById('11').classList.contains('living')== true){
+                        if (document.getElementById('1.1').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById('00').classList.contains('living') == true ){
+                        if (document.getElementById('0.0').classList.contains('living') == true ){
                             if (!((count == 2)||(count == 3))){
-                                document.getElementById('00').classList.add('dead');
-                                document.getElementById('00').classList.remove('living');
+                                document.getElementById('0.0').classList.add('dead');
+                                document.getElementById('0.0').classList.remove('living');
                             }
                         }
                         else if (count == 3) {
-                                document.getElementById('00').classList.add('living');
-                                document.getElementById('00').classList.remove('empty');
-                                document.getElementById('00').classList.remove('dead');
+                                document.getElementById('0.0').classList.add('living');
+                                document.getElementById('0.0').classList.remove('empty');
+                                document.getElementById('0.0').classList.remove('dead');
                         }
                     }
                     if (cell == ('0.'+cols-1)){
-                        if (document.getElementById('0'+(cols-2).toString()).classList.contains('living')== true){
+                        if (document.getElementById('0.'+(cols-2).toString()).classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById('1'+(cols-1).toString()).classList.contains('living')== true){
+                        if (document.getElementById('1.'+(cols-1).toString()).classList.contains('living')== true){
                         count++;
                         
                         }
-                        if (document.getElementById('1'+(cols-2).toString()).classList.contains('living')== true){
+                        if (document.getElementById('1.'+(cols-2).toString()).classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById('0'+(cols-1).toString()).classList.contains('living') == true ){
+                        if (document.getElementById('0.'+(cols-1).toString()).classList.contains('living') == true ){
                             if (!((count == 2)||(count == 3))){
-                                document.getElementById('0'+(cols-1).toString()).classList.add('dead');
-                                document.getElementById('0'+(cols-1).toString()).classList.remove('living');
-                                document.getElementById('0'+(cols-1).toString()).classList.remove('empty');
+                                document.getElementById('0.'+(cols-1).toString()).classList.add('dead');
+                                document.getElementById('0.'+(cols-1).toString()).classList.remove('living');
+                                document.getElementById('0.'+(cols-1).toString()).classList.remove('empty');
                             }
                         }
                         else if (count == 3) {
-                                document.getElementById('0'+(cols-1).toString()).classList.add('living');
-                                document.getElementById('0'+(cols-1).toString()).classList.remove('empty');
-                                document.getElementById('0'+(cols-1).toString()).classList.remove('dead');
+                                document.getElementById('0.'+(cols-1).toString()).classList.add('living');
+                                document.getElementById('0.'+(cols-1).toString()).classList.remove('empty');
+                                document.getElementById('0.'+(cols-1).toString()).classList.remove('dead');
                         }
                     }
                     if (cell == (rows-1 + '.0')){
-                        if (document.getElementById((rows-1).toString() + '1').classList.contains('living')== true){
+                        if (document.getElementById((rows-1).toString() + '.1').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-2).toString() + '1').classList.contains('living')== true){
+                        if (document.getElementById((rows-2).toString() + '.1').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-2).toString() + '0').classList.contains('living')== true){
+                        if (document.getElementById((rows-2).toString() + '.0').classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-1).toString() + '0').classList.contains('living') == true ){
+                        if (document.getElementById((rows-1).toString() + '.0').classList.contains('living') == true ){
                             if (!((count == 2)||(count == 3))){
-                                document.getElementById((rows-1).toString() + '0').classList.add('dead');
-                                document.getElementById((rows-1).toString() + '0').classList.remove('living');
+                                document.getElementById((rows-1).toString() + '.0').classList.add('dead');
+                                document.getElementById((rows-1).toString() + '.0').classList.remove('living');
                             }
                         }
                         else if (count == 3) {
-                                document.getElementById((rows-1).toString() + '0').classList.add('living');
-                                document.getElementById((rows-1).toString() + '0').classList.remove('empty');
-                                document.getElementById((rows-1).toString() + '0').classList.remove('dead');
+                                document.getElementById((rows-1).toString() + '.0').classList.add('living');
+                                document.getElementById((rows-1).toString() + '.0').classList.remove('empty');
+                                document.getElementById((rows-1).toString() + '.0').classList.remove('dead');
                         }
                     }
                     if (cell == ((rows-1).toString() +"."+ (cols-1))){
-                        if (document.getElementById((rows-2).toString() + (cols-1).toString()).classList.contains('living')== true){
+                        if (document.getElementById((rows-2).toString() +"."+ (cols-1).toString()).classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-1).toString() + (cols-2).toString()).classList.contains('living')== true){
+                        if (document.getElementById((rows-1).toString() +"."+ (cols-2).toString()).classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-2).toString() + (cols-2).toString()).classList.contains('living')== true){
+                        if (document.getElementById((rows-2).toString() +"."+ (cols-2).toString()).classList.contains('living')== true){
                         count++;
                         }
-                        if (document.getElementById((rows-1).toString() + (cols-1).toString()).classList.contains('living') == true ){
+                        if (document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.contains('living') == true ){
                             if (!((count == 2)||(count == 3))){
-                                document.getElementById((rows-1).toString() + (cols-1).toString()).classList.add('dead');
-                                document.getElementById((rows-1).toString() + (cols-1).toString()).classList.remove('living');
+                                document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.add('dead');
+                                document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.remove('living');
                             }
                         }
                         else if (count == 3) {
-                                document.getElementById((rows-1).toString() + (cols-1).toString()).classList.add('living');
-                                document.getElementById((rows-1).toString() + (cols-1).toString()).classList.remove('empty');
-                                document.getElementById((rows-1).toString() + (cols-1).toString()).classList.remove('dead');
+                                document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.add('living');
+                                document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.remove('empty');
+                                document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.remove('dead');
                         }
                     }
                 }
