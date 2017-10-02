@@ -76,7 +76,7 @@ function startup(){
                                 document.getElementById('0.0').classList.remove('dead');
                         }
                     }
-                    if (cell == ('0.'+cols-1)){
+                    if (cell == ('0.'+(cols-1))){
                         if (document.getElementById('0.'+(cols-2).toString()).classList.contains('living')== true){
                         count++;
                         }
