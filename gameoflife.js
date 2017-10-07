@@ -143,7 +143,7 @@ function startup(){
                             }
                         }
                         else if (count == 3) {
-                        		arr[i][j] = 2
+                                arr[i][j] = 2;
                         }
                     }
                     if (cell == (rows-1 + '.0')){
@@ -162,7 +162,7 @@ function startup(){
                             }
                         }
                         else if (count == 3) {
-                        		arr[i][j] = 2
+                                arr[i][j] = 2;
                         }
                     }
                     if (cell == ((rows-1).toString() +"."+ (cols-1).toString())){
@@ -181,7 +181,7 @@ function startup(){
                             }
                         }
                         else if (count == 3) {
-                        		arr[i][j] = 2
+                                arr[i][j] = 2;
                         }
                     }
                 }
