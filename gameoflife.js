@@ -1,5 +1,13 @@
 var rows = prompt("How many rows?");
 var cols = prompt("How many columns?");
+var arr = Create2DArray(rows);
+
+
+for(i=0;i<rows;i++){
+                for(j=0;j<cols;j++){
+                    arr[i][j] = 0;
+                }
+}
 
 var tbl = document.getElementById('GameOfLife');
 
@@ -10,6 +18,9 @@ function wait(ms){
      end = new Date().getTime();
   }
 }
+
+
+
 
 function changeImage(x) 
 	{
@@ -88,13 +99,11 @@ function reset(){
 function startup(){
         var cell;
         var count;
-        var arr = Create2DArray(rows);
         
         if ((rows >1)&&(cols >1)) {
             for(i=0;i<rows;i++){
                 for(j=0;j<cols;j++){
                     count = 0;
-                    arr[i][j] = 0;
                     cell =  ( i.toString() +"."+ j.toString() );
                     
                     if (cell == ('0.0')){
