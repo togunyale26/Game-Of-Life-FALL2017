@@ -67,6 +67,15 @@ function reset(){
     }
 }
 
+function start(){
+    current_run = setInterval(startup, 1000);
+}
+
+function stop(){
+    clearInterval(current_run);
+}
+
+
 
 function startup(){
     var cell;
@@ -80,12 +89,11 @@ function startup(){
         for(i=0;i<rows;i++){
             for(j=0;j<cols;j++){
                 count = 0;
-                arr[i][j] = 0;
                 ir = i;
                 ic = j;
                 cell =  ( i.toString() +"."+ j.toString() );
 
-                if (cell == ('0.0')){
+               /** if (cell == ('0.0')){
                     if (document.getElementById('0.1').classList.contains('living')== true){
                         count++;
                     }
@@ -166,13 +174,18 @@ function startup(){
 
                 // Left Edge
                 if ((i > 0 && i < rows - 1 ) && (j == 0)){
-                    for(it = ir; it <= ir + 1; it++){
-                        for(ru = ic - 1; ru <= ic + 1; ru++ ){
+                    for(it = ir - 1; it <= ir + 1; it++){
+                        for(ru = ic ; ru <= ic + 1; ru++ ){
 
                             if( it == ir && ru == ic){
                                 // skip
                             }
                             else {
+
+                                cellString = (it.toString() + '.' + ru.toString());
+
+                                prompt(cellString);
+
 
 
                             }
@@ -181,15 +194,16 @@ function startup(){
                 }
 
                 // Right Edge
-                if ((i > 0 && i < rows - 1 ) && (j == cols - 1)){
-                    for( it = ir - 1; it <= ir; it++){
-                        for( ru = ic - 1; ru <= ic + 1; ru++){
+                 else if ((i > 0 && i < rows - 1 ) && (j == cols - 1)){
+                    for( it = ir - 1; it <= ir + 1; it++){
+                        for( ru = ic - 1; ru <= ic; ru++){
                             if( it == ir && ru == ic){
                                 // skip
                             }
                             else {
 
                                 cellString = (it.toString() + '.' + ru.toString());
+                                prompt(cellString);
 
                             }
 
@@ -199,15 +213,16 @@ function startup(){
                 }
 
                 // Top Edge
-                if ((j > 0 && j < cols - 1 ) && (i == 0)){
-                    for( it = ic; it <= ic + 1; it++){
-                        for( ru = ir - 1; ru <= ir + 1; ru++){
+                 else if((j > 0 && j < cols - 1 ) && (i == 0)){
+                    for( it = ic - 1; it <= ic + 1; it++){
+                        for( ru = ir; ru <= ir + 1; ru++){
                             if( ru == ir && it == ic){
                                 // skip
                             }
                             else {
 
                                 cellString = (it.toString() + '.' + ru.toString());
+                                prompt(cellString);
 
                             }
 
@@ -217,15 +232,16 @@ function startup(){
                 }
 
                 // Bottom Edge
-                if ((j> 0 && j < cols - 1 ) && (j == rows - 1)){
-                    for( it = ic - 1; it <= ic; it++){
-                        for( ru = ir - 1; ru <= ir + 1; ru++){
+               else if ((j> 0 && j < cols - 1 ) && (j == rows - 1)){
+                    for( it = ic - 1; it <= ic + 1; it++){
+                        for( ru = ir - 1 ; ru <= ir; ru++){
                             if( ru == ir && it == ic){
                                 // skip
                             }
                             else {
 
                                 cellString = (it.toString() + '.' + ru.toString());
+                                prompt(cellString);
 
                             }
 
@@ -234,20 +250,39 @@ function startup(){
                 }
 
                 //Everything else
-                else{
+                else{ **/
 
                     for( it = ir - 1; it <= ir + 1; it++){
                         for( ru = ic - 1; ru <= ic + 1; ru++){
                             if( it == ir && ru == ic){
                                 // skip
                             }
+                            if( it < 0 || ru < 0 || it > rows -1 || ru > cols -1){
+
+                            }
                             else {
 
                                 cellString = (it.toString() + '.' + ru.toString());
+                               // prompt(cellString);
+
+
+                                if (document.getElementById(cellString).classList.contains('living')== true){
+                                    count++;
+                                }
 
                             }
                         }
 
+                    }
+
+                    if (document.getElementById(cell).classList.contains('living') == true ){
+                        if (!((count == 2)||(count == 3))){
+                            arr[i][j] = 1;
+                            //1 is dead
+                        }
+                    }
+                    else if (count == 3) {
+                        arr[i][j] = 2;
                     }
 
 
@@ -255,9 +290,6 @@ function startup(){
             }
 
         }
-
-
-    }
 
     for(i=0;i<rows;i++){
         for(j=0;j<cols;j++){
