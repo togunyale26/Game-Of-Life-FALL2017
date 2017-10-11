@@ -11,6 +11,14 @@ function wait(ms){
     }
 }
 
+function start(){
+    current_run = setInterval(startup, 1000);
+}
+
+function stop(){
+    clearInterval(current_run);
+}
+
 function changeImage(x)
 {
     var location = x;
