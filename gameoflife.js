@@ -101,118 +101,23 @@ function startup(){
                 ic = j;
                 cell =  ( i.toString() +"."+ j.toString() );
 
-               /** if (cell == ('0.0')){
-                    if (document.getElementById('0.1').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById('1.0').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById('1.1').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById('0.0').classList.contains('living') == true ){
-                        if (!((count == 2)||(count == 3))){
-                            arr[i][j] = 1;
-                            //1 is dead
+
+                for( it = ir - 1; it <= ir + 1; it++){
+                    for( ru = ic - 1; ru <= ic + 1; ru++){
+                        if( it == ir && ru == ic){
+                            // skip
                         }
-                    }
-                    else if (count == 3) {
-                        arr[i][j] = 2;
-                    }
-                }
-                if (cell == ('0.'+(cols-1))){
-                    if (document.getElementById('0.'+(cols-2).toString()).classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById('1.'+(cols-1).toString()).classList.contains('living')== true){
-                        count++;
+                        if( it < 0 || ru < 0 || it > rows -1 || ru > cols -1){
 
-                    }
-                    if (document.getElementById('1.'+(cols-2).toString()).classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById('0.'+(cols-1).toString()).classList.contains('living') == true ){
-                        if (!((count == 2)||(count == 3))){
-                            arr[i][j] = 1;
                         }
-                    }
-                    else if (count == 3) {
-                        arr[i][j] = 2
-                    }
-                }
-                if (cell == (rows-1 + '.0')){
-                    if (document.getElementById((rows-1).toString() + '.1').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-2).toString() + '.1').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-2).toString() + '.0').classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-1).toString() + '.0').classList.contains('living') == true ){
-                        if (!((count == 2)||(count == 3))){
-                            arr[i][j] = 1;
-                        }
-                    }
-                    else if (count == 3) {
-                        arr[i][j] = 2
-                    }
-                }
-                if (cell == ((rows-1).toString() +"."+ (cols-1))){
-                    if (document.getElementById((rows-2).toString() +"."+ (cols-1).toString()).classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-1).toString() +"."+ (cols-2).toString()).classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-2).toString() +"."+ (cols-2).toString()).classList.contains('living')== true){
-                        count++;
-                    }
-                    if (document.getElementById((rows-1).toString() +"."+ (cols-1).toString()).classList.contains('living') == true ){
-                        if (!((count == 2)||(count == 3))){
-                            arr[i][j] = 1;
-                        }
-                    }
-                    else if (count == 3) {
-                        arr[i][j] = 2
-                    }
-                }
+                        else {
 
-                // Left Edge
-                if ((i > 0 && i < rows - 1 ) && (j == 0)){
-                    for(it = ir - 1; it <= ir + 1; it++){
-                        for(ru = ic ; ru <= ic + 1; ru++ ){
-
-                            if( it == ir && ru == ic){
-                                // skip
-                            }
-                            else {
-
-                                cellString = (it.toString() + '.' + ru.toString());
-
-                                prompt(cellString);
+                            cellString = (it.toString() + '.' + ru.toString());
+                            // prompt(cellString);
 
 
-
-                            }
-                        }
-                    }
-                }
-
-                // Right Edge
-                 else if ((i > 0 && i < rows - 1 ) && (j == cols - 1)){
-                    for( it = ir - 1; it <= ir + 1; it++){
-                        for( ru = ic - 1; ru <= ic; ru++){
-                            if( it == ir && ru == ic){
-                                // skip
-                            }
-                            else {
-
-                                cellString = (it.toString() + '.' + ru.toString());
-                                prompt(cellString);
-
+                            if (document.getElementById(cellString).classList.contains('living')== true){
+                                count++;
                             }
 
                         }
@@ -220,84 +125,21 @@ function startup(){
 
                 }
 
-                // Top Edge
-                 else if((j > 0 && j < cols - 1 ) && (i == 0)){
-                    for( it = ic - 1; it <= ic + 1; it++){
-                        for( ru = ir; ru <= ir + 1; ru++){
-                            if( ru == ir && it == ic){
-                                // skip
-                            }
-                            else {
-
-                                cellString = (it.toString() + '.' + ru.toString());
-                                prompt(cellString);
-
-                            }
-
-                        }
-                    }
-
-                }
-
-                // Bottom Edge
-               else if ((j> 0 && j < cols - 1 ) && (j == rows - 1)){
-                    for( it = ic - 1; it <= ic + 1; it++){
-                        for( ru = ir - 1 ; ru <= ir; ru++){
-                            if( ru == ir && it == ic){
-                                // skip
-                            }
-                            else {
-
-                                cellString = (it.toString() + '.' + ru.toString());
-                                prompt(cellString);
-
-                            }
-
-                        }
+                if (document.getElementById(cell).classList.contains('living') == true ){
+                    if (!((count == 2)||(count == 3))){
+                        arr[i][j] = 1;
+                        //1 is dead
                     }
                 }
-
-                //Everything else
-                else{ **/
-
-                    for( it = ir - 1; it <= ir + 1; it++){
-                        for( ru = ic - 1; ru <= ic + 1; ru++){
-                            if( it == ir && ru == ic){
-                                // skip
-                            }
-                            if( it < 0 || ru < 0 || it > rows -1 || ru > cols -1){
-
-                            }
-                            else {
-
-                                cellString = (it.toString() + '.' + ru.toString());
-                               // prompt(cellString);
-
-
-                                if (document.getElementById(cellString).classList.contains('living')== true){
-                                    count++;
-                                }
-
-                            }
-                        }
-
-                    }
-
-                    if (document.getElementById(cell).classList.contains('living') == true ){
-                        if (!((count == 2)||(count == 3))){
-                            arr[i][j] = 1;
-                            //1 is dead
-                        }
-                    }
-                    else if (count == 3) {
-                        arr[i][j] = 2;
-                    }
-
-
+                else if (count == 3) {
+                    arr[i][j] = 2;
                 }
+
+
             }
-
         }
+
+    }
 
     for(i=0;i<rows;i++){
         for(j=0;j<cols;j++){
