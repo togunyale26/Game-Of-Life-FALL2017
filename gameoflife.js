@@ -41,6 +41,13 @@ function changeImage(x)
     }
 
 }
+function incTwentyThree(){
+    var x =0;
+    while (x<23){
+        startup();
+        x++;
+    }
+}
 
 function makeAlive(cellid){
     document.getElementById(cellid).classList.add('living');
@@ -75,73 +82,87 @@ function reset(){
     }
 }
 
-function start(){
-    current_run = setInterval(startup, 1000);
-}
-
-function stop(){
-    clearInterval(current_run);
-}
-
-
+    var arr = Create2DArray(rows);
 
 function startup(){
     var cell;
     var count;
-    var arr = Create2DArray(rows);
-    var ir;
-    var ic;
     var cellString;
 
     if ((rows >1)&&(cols >1)) {
         for(i=0;i<rows;i++){
             for(j=0;j<cols;j++){
                 count = 0;
-                ir = i;
-                ic = j;
                 cell =  ( i.toString() +"."+ j.toString() );
 
+                if (document.getElementById((i-1)+"."+(j-1).toString()) !== null){
+                    if (document.getElementById((i-1)+"."+(j-1).toString()).classList.contains('living')== true){
+                        count++;
+                    }
 
-                for( it = ir - 1; it <= ir + 1; it++){
-                    for( ru = ic - 1; ru <= ic + 1; ru++){
-                        if( it == ir && ru == ic){
-                            // skip
-                        }
-                        if( it < 0 || ru < 0 || it > rows -1 || ru > cols -1){
+                }
+                if (document.getElementById((i-1)+"."+(j).toString()) !== null){
+                    if (document.getElementById((i-1)+"."+(j).toString()).classList.contains('living')== true){
+                        count++;
+                    }
 
-                        }
-                        else {
+                }
+                if (document.getElementById((i-1)+"."+(j+1).toString()) !== null){
+                    if (document.getElementById((i-1)+"."+(j+1).toString()).classList.contains('living')== true){
+                        count++;
+                    }
 
-                            cellString = (it.toString() + '.' + ru.toString());
-                            // prompt(cellString);
-
-
-                            if (document.getElementById(cellString).classList.contains('living')== true){
-                                count++;
-                            }
-
-                        }
+                }
+                if (document.getElementById((i)+"."+(j-1).toString()) !== null){
+                    if (document.getElementById((i)+"."+(j-1).toString()).classList.contains('living')== true){
+                        count++;
                     }
 
                 }
 
+                if (document.getElementById((i)+"."+(j+1).toString()) !== null){
+                    if (document.getElementById((i)+"."+(j+1).toString()).classList.contains('living')== true){
+                        count++;
+                    }
+
+                }
+                if (document.getElementById((i+1)+"."+(j-1).toString()) !== null){
+                    if (document.getElementById((i+1)+"."+(j-1).toString()).classList.contains('living')== true){
+                        count++;
+                    }
+
+                }
+                if (document.getElementById((i+1)+"."+(j).toString()) !== null){
+                    if (document.getElementById((i+1)+"."+(j).toString()).classList.contains('living')== true){
+                        count++;
+                    }
+
+                }
+                if ((document.getElementById((i+1)+"."+(j+1).toString())) !== null){
+                    if (document.getElementById((i+1)+"."+(j+1).toString()).classList.contains('living')== true){
+                        count++;
+                    }
+
+                }
                 if (document.getElementById(cell).classList.contains('living') == true ){
                     if (!((count == 2)||(count == 3))){
                         arr[i][j] = 1;
                         //1 is dead
                     }
                 }
-                else if (count == 3) {
+                if (count == 3) {
                     arr[i][j] = 2;
                 }
-
-
             }
-        }
+            }
 
+        }
+    update();
     }
 
-    for(i=0;i<rows;i++){
+ 
+ function update(){
+     for(i=0;i<rows;i++){
         for(j=0;j<cols;j++){
             if (arr[i][j] == 1){
                 makeDead(i+"."+j);
